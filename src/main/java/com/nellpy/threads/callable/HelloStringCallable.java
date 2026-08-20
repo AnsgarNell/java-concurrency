@@ -1,4 +1,4 @@
-package com.nellpy.executors;
+package com.nellpy.threads.callable;
 
 import java.util.concurrent.Callable;
 

@@ -1,6 +1,8 @@
 package com.nellpy.executors;
 
 import com.nellpy.threads.HelloThread;
+import com.nellpy.threads.callable.HelloNamedCallable;
+import com.nellpy.threads.callable.HelloStringCallable;
 import org.junit.jupiter.api.Test;
 
 import java.util.Collection;
