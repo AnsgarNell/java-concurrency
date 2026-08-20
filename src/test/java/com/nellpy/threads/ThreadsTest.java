@@ -10,4 +10,10 @@ class ThreadsTest {
         Thread.ofPlatform().start(new HelloThread());
     }
 
+
+    @Test
+    public void runnable() {
+        Thread.ofPlatform().start(new HelloRunnable());
+    }
+
 }
