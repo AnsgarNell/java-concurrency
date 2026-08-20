@@ -1,4 +1,4 @@
-package com.nellpy.threads;
+package com.nellpy.threads.runnable;
 
 public class HelloRunnable implements Runnable {
 

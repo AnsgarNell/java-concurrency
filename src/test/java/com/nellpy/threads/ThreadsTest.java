@@ -1,6 +1,7 @@
 package com.nellpy.threads;
 
 import com.nellpy.threads.callable.HelloCallable;
+import com.nellpy.threads.runnable.HelloRunnable;
 import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.FutureTask;
