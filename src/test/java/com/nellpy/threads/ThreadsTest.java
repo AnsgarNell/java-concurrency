@@ -2,6 +2,8 @@ package com.nellpy.threads;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.concurrent.FutureTask;
+
 
 class ThreadsTest {
 
@@ -14,6 +16,13 @@ class ThreadsTest {
     @Test
     public void runnable() {
         Thread.ofPlatform().start(new HelloRunnable());
+    }
+
+
+    @Test
+    public void callable() {
+        FutureTask<Void> futureTask = new FutureTask<>(new HelloCallable());
+        Thread.ofPlatform().start(futureTask);
     }
 
 }
