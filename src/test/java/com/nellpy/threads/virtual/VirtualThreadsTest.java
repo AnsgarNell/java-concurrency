@@ -1,0 +1,31 @@
+package com.nellpy.threads.virtual;
+
+import org.junit.jupiter.api.Test;
+
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.locks.LockSupport;
+
+
+public class VirtualThreadsTest {
+
+    // Adapted from https://github.com/Modern-Concurrency-in-Java/modern-concurrency-java-book/blob/main/src/main/java/ca/bazlur/modern/concurrency/c01/ThreadLimitTest.java
+    @Test
+    public void classicThreadsLimit() {
+        AtomicInteger threadCount = new AtomicInteger(0);
+        try {
+            //noinspection InfiniteLoopStatement
+            while (true) {
+                Thread.ofPlatform().start(() -> {
+                    threadCount.incrementAndGet();
+                    System.out.println("Created thread: " + threadCount.get());
+                    LockSupport.park();
+                });
+            }
+        } catch (OutOfMemoryError error) {
+            System.out.println("Reached thread limit: " + threadCount);
+            System.err.println(error.getMessage());
+            System.exit(1);
+        }
+    }
+
+}
