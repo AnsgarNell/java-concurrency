@@ -25,4 +25,15 @@ class ThreadsTest {
         Thread.ofPlatform().start(futureTask);
     }
 
+
+    @Test
+    public void threadStates() throws InterruptedException {
+        Thread thread = Thread.ofPlatform().unstarted(new HelloThread());
+        System.out.println("Thread is in state: " + thread.getState());
+        thread.start();
+        System.out.println("Thread is in state: " + thread.getState());
+        thread.join();
+        System.out.println("Thread is in state: " + thread.getState());
+    }
+
 }
