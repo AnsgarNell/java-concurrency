@@ -27,4 +27,18 @@ class AccountTest {
         Assertions.assertEquals(INITIAL_BALANCE, account.value());
     }
 
+
+    @Test
+    public void testThreadInterferenceWithSynchronized() {
+        SynchronizedAccount synchronizedAccount = new SynchronizedAccount();
+        Assertions.assertEquals(INITIAL_BALANCE, synchronizedAccount.value());
+        try(ExecutorService executorService = Executors.newFixedThreadPool(N_THREADS)) {
+            for (int i = 0; i < N_THREADS; i++) {
+                executorService.execute(synchronizedAccount::increment);
+                executorService.execute(synchronizedAccount::decrement);
+            }
+        }
+        Assertions.assertEquals(INITIAL_BALANCE, synchronizedAccount.value());
+    }
+
 }
