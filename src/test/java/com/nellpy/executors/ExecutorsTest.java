@@ -44,6 +44,18 @@ public class ExecutorsTest {
     }
 
 
+    @Test
+    public void invokeAllWithCachedThreadPoolExecutor() throws InterruptedException, ExecutionException {
+        try(ExecutorService executorService = Executors.newCachedThreadPool()) {
+            List<Future<String>> futures = executorService.invokeAll(getCallables());
+            for (Future<String> future : futures) {
+                String result = future.get();
+                System.out.println(result);
+            }
+        }
+    }
+
+
     private static Collection<Callable<String>> getCallables() {
         return List.of(
                 new HelloNamedCallable(),
