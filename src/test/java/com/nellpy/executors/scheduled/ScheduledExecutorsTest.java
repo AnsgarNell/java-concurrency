@@ -34,6 +34,16 @@ public class ScheduledExecutorsTest {
     }
 
 
+    @Test
+    public void scheduleWithFixedDelay() {
+        try(ScheduledExecutorService scheduledExecutorService = Executors.newSingleThreadScheduledExecutor()) {
+            ScheduledFuture<?> scheduledFuture = scheduledExecutorService.scheduleWithFixedDelay(new HelloTimeLoggerRunnable(), 5, 1, TimeUnit.SECONDS);
+            pauseMainThreadExecution();
+            scheduledFuture.cancel(true);
+        }
+    }
+
+
     private static void pauseMainThreadExecution() {
         try {
             TimeUnit.SECONDS.sleep(10);
