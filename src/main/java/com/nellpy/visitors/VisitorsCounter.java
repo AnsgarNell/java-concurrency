@@ -1,24 +1,11 @@
 package com.nellpy.visitors;
 
-public class VisitorsCounter {
+public interface VisitorsCounter {
 
-    private int entered = 0;
+    void enter();
 
-    private int left = 0;
+    void exit();
 
-
-    public int getTotal() {
-        return entered - left;
-    }
-
-
-    public void enter() {
-        entered++;
-    }
-
-
-    public void exit() {
-        left++;
-    }
+    int getTotal();
 
 }
