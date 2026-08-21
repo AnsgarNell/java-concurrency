@@ -10,21 +10,27 @@ import java.util.concurrent.FutureTask;
 class ThreadsTest {
 
     @Test
-    public void thread() {
-        Thread.ofPlatform().start(new HelloThread());
+    public void thread() throws InterruptedException {
+        Thread thread = Thread.ofPlatform()
+                .start(new HelloThread());
+        thread.join();
     }
 
 
     @Test
-    public void runnable() {
-        Thread.ofPlatform().start(new HelloRunnable());
+    public void runnable() throws InterruptedException {
+        Thread thread = Thread.ofPlatform()
+                .start(new HelloRunnable());
+        thread.join();
     }
 
 
     @Test
-    public void callable() {
+    public void callable() throws InterruptedException {
         FutureTask<Void> futureTask = new FutureTask<>(new HelloCallable());
-        Thread.ofPlatform().start(futureTask);
+        Thread thread = Thread.ofPlatform()
+                .start(futureTask);
+        thread.join();
     }
 
 
