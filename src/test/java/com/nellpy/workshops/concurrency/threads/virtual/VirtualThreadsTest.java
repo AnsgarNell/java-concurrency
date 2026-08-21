@@ -21,8 +21,7 @@ public class VirtualThreadsTest {
             //noinspection InfiniteLoopStatement
             while (true) {
                 Thread.ofPlatform().start(() -> {
-                    threadCount.incrementAndGet();
-                    System.out.println("Created thread: " + threadCount.get());
+                    System.out.println("Created thread: " + threadCount.incrementAndGet());
                     LockSupport.park();
                 });
             }

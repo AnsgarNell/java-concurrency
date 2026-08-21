@@ -13,8 +13,7 @@ public class VirtualMain {
             //noinspection InfiniteLoopStatement
             while (true) {
                 Thread.ofVirtual().start(() -> {
-                    threadCount.incrementAndGet();
-                    System.out.println("Created thread: " + threadCount.get());
+                    System.out.println("Created thread: " + threadCount.incrementAndGet());
                     LockSupport.park();
                 });
             }
