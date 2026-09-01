@@ -12,7 +12,7 @@ import java.util.concurrent.Executors;
 class VisitorsCounterTest {
 
     @ParameterizedTest
-    @ValueSource(ints = {10, 100, 1_000, 10_000})
+    @ValueSource(ints = {10, 100, 1_000, 10_000, 100_000, 1_000_000})
     public void nonSynchronizedVisitorsCounter(int visitors) {
         VisitorsCounter visitorsCounter = new NonSynchronizedVisitorsCounter();
         Assertions.assertEquals(0, visitorsCounter.getTotal());
@@ -27,7 +27,7 @@ class VisitorsCounterTest {
 
 
     @ParameterizedTest
-    @ValueSource(ints = {10, 100, 1_000, 10_000})
+    @ValueSource(ints = {10, 100, 1_000, 10_000, 100_000, 1_000_000})
     public void synchronizedVisitorsCounter(int visitors) {
         VisitorsCounter visitorsCounter = new SynchronizedVisitorsCounter();
         Assertions.assertEquals(0, visitorsCounter.getTotal());
