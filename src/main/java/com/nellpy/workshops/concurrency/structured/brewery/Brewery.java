@@ -1,4 +1,4 @@
-package com.nellpy.workshops.concurrency.structured;
+package com.nellpy.workshops.concurrency.structured.brewery;
 
 import java.time.LocalDateTime;
 import java.util.concurrent.Callable;

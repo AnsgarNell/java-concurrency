@@ -1,4 +1,4 @@
-package com.nellpy.workshops.concurrency.structured;
+package com.nellpy.workshops.concurrency.structured.brewery;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 import java.util.concurrent.StructuredTaskScope;
 
-import static com.nellpy.workshops.concurrency.structured.Brewery.CAPACITY;
+import static com.nellpy.workshops.concurrency.structured.brewery.Brewery.CAPACITY;
 
 
 @SuppressWarnings("preview")

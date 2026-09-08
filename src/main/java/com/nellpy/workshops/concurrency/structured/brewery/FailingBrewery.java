@@ -1,4 +1,4 @@
-package com.nellpy.workshops.concurrency.structured;
+package com.nellpy.workshops.concurrency.structured.brewery;
 
 public class FailingBrewery extends Brewery {
 
