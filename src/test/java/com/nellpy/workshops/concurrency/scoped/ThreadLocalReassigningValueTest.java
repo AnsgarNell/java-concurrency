@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 
-public class ThreadLocalTest {
+public class ThreadLocalReassigningValueTest {
 
     public static final String CURRENT_USER = "currentUser";
 
@@ -12,7 +12,7 @@ public class ThreadLocalTest {
 
 
     @Test
-    public void threadLocal() {
+    public void reassigningValue() {
         Thread.ofPlatform().start(this::executeAsUser);
     }
 
