@@ -1,5 +1,6 @@
 package com.nellpy.workshops.concurrency.scoped;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.ExecutorService;
@@ -7,6 +8,8 @@ import java.util.concurrent.Executors;
 
 
 public class ThreadLocalLeakedValueTest {
+
+    public static final String DOCUMENT_ID = "123456";
 
     private static final ThreadLocal<String> documentId = new ThreadLocal<>();
 
@@ -23,7 +26,7 @@ public class ThreadLocalLeakedValueTest {
 
 
     private void successfulDocumentCreation() {
-        documentId.set("123456");
+        documentId.set(DOCUMENT_ID);
     }
 
 
@@ -34,6 +37,7 @@ public class ThreadLocalLeakedValueTest {
 
     private void printDocumentId() {
         System.out.println("Document ID: " + documentId.get());
+        Assertions.assertEquals(DOCUMENT_ID, documentId.get());
     }
 
 }
